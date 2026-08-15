@@ -1,0 +1,89 @@
+.gallery__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.6rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.gallery__filter {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  padding-block: 0.3rem;
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.gallery__filter:hover { color: var(--color-ink); }
+
+.gallery__filter.is-active {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-ink);
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(0.6rem, 1.4vw, 1.25rem);
+}
+
+.gallery__cell {
+  position: relative;
+  overflow: hidden;
+  grid-column: span 6;
+  aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 640px) {
+  .gallery__cell--portrait { grid-column: span 2; aspect-ratio: 3 / 4; }
+  .gallery__cell--landscape { grid-column: span 3; aspect-ratio: 4 / 3; }
+  .gallery__cell--square { grid-column: span 2; aspect-ratio: 1 / 1; }
+  .gallery__cell--wide { grid-column: span 6; aspect-ratio: 16 / 7; }
+}
+
+@media (max-width: 639px) {
+  .gallery__cell { aspect-ratio: 4 / 5; }
+}
+
+.gallery__cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.gallery__cell:hover img,
+.gallery__cell:focus-visible img {
+  transform: scale(1.05);
+}
+
+.gallery__cell-meta {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  background: linear-gradient(0deg, rgba(23,22,15,0.7), rgba(23,22,15,0));
+  color: var(--color-paper);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  text-align: left;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+
+.gallery__cell:hover .gallery__cell-meta,
+.gallery__cell:focus-visible .gallery__cell-meta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery__cell-tag {
+  color: var(--color-stone);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}

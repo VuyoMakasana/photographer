@@ -1,0 +1,115 @@
+.project-detail__hero {
+  position: relative;
+  height: 70vh;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.project-detail__hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-detail__hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(23,22,15,0.25) 0%, rgba(23,22,15,0.75) 100%);
+}
+
+.project-detail__hero-content {
+  position: relative;
+  color: var(--color-paper);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.project-detail__title {
+  font-size: var(--step-4);
+  color: var(--color-paper);
+  margin-block: 0.5rem 0.3rem;
+}
+
+.project-detail__location {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--color-stone);
+}
+
+.project-detail__body {
+  padding-top: var(--section-space);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  max-width: 52rem;
+}
+
+.project-detail__description {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.35;
+  margin-bottom: 1.5rem;
+}
+
+.project-detail__notes {
+  color: var(--color-ink-soft);
+  line-height: 1.7;
+  max-width: 46ch;
+}
+
+.project-detail__gallery { padding-bottom: var(--section-space); }
+
+.project-detail__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.6rem, 1.4vw, 1.25rem);
+}
+
+.project-detail__cell {
+  grid-column: span 2;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.project-detail__cell--wide {
+  grid-column: span 4;
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 640px) {
+  .project-detail__cell { grid-column: span 4; aspect-ratio: 4 / 5; }
+}
+
+.project-detail__cell img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.project-detail__cell:hover img { transform: scale(1.04); }
+
+.project-detail__more {
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
+  border-top: var(--border);
+}
+
+.project-detail__more-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .project-detail__more-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.project-detail__more-item { display: block; }
+
+.project-detail__more-item img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+
+.project-detail__more-year { color: var(--color-stone); }

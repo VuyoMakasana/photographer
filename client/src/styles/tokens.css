@@ -1,0 +1,52 @@
+/* ============================================================
+   AMARA STUDIO — DESIGN TOKENS
+   Palette: paper / ink / stone, with a single olive accent used
+   sparingly (never as decoration — only for active/interactive states).
+   ============================================================ */
+
+:root {
+  /* Color */
+  --color-paper: #f7f5f0;       /* background */
+  --color-paper-dim: #efece4;   /* alternate section background */
+  --color-ink: #17160f;         /* primary text */
+  --color-ink-soft: #4a4838;    /* secondary text */
+  --color-stone: #a49d8b;       /* muted / borders */
+  --color-stone-light: #ddd8ca; /* hairlines */
+  --color-accent: #4a5240;      /* olive — sparing use only */
+  --color-accent-soft: #6b755d;
+  --color-overlay: rgba(23, 22, 15, 0.86);
+
+  /* Typography */
+  --font-display: 'Fraunces', 'Iowan Old Style', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --step--2: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
+  --step--1: clamp(0.85rem, 0.82rem + 0.15vw, 0.95rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.6rem, 1.4rem + 1vw, 2.1rem);
+  --step-3: clamp(2.2rem, 1.8rem + 2vw, 3.2rem);
+  --step-4: clamp(3rem, 2.2rem + 4vw, 5.2rem);
+  --step-5: clamp(4rem, 2.6rem + 7vw, 8rem);
+
+  /* Layout */
+  --container-max: 1440px;
+  --gutter: clamp(1.25rem, 1rem + 2vw, 4rem);
+  --section-space: clamp(4.5rem, 3.5rem + 5vw, 9rem);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 240ms;
+  --dur-med: 560ms;
+  --dur-slow: 900ms;
+
+  /* Misc */
+  --radius: 0px; /* deliberately square — editorial, not app-like */
+  --border: 1px solid var(--color-stone-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Intentionally not auto-switching — the brand is a fixed paper/ink
+     identity, like print. Dark mode is not offered. */
+}

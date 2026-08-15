@@ -1,0 +1,119 @@
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: hero-in 1.6s var(--ease) both;
+}
+
+@keyframes hero-in {
+  from { transform: scale(1.06); opacity: 0.6; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(23,22,15,0.15) 0%, rgba(23,22,15,0.05) 40%, rgba(23,22,15,0.72) 100%);
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: clamp(3rem, 6vw, 5.5rem);
+  color: var(--color-paper);
+  max-width: 46rem;
+}
+
+.hero__kicker {
+  margin-bottom: 1.1rem;
+  opacity: 0.9;
+  animation: fade-up 0.9s var(--ease) 0.3s both;
+}
+
+.hero__headline {
+  font-size: var(--step-5);
+  color: var(--color-paper);
+  margin-bottom: 1rem;
+  animation: fade-up 0.9s var(--ease) 0.45s both;
+}
+
+.hero__subhead {
+  font-size: var(--step-1);
+  max-width: 34ch;
+  color: var(--color-paper);
+  opacity: 0.92;
+  margin-bottom: 2.2rem;
+  animation: fade-up 0.9s var(--ease) 0.6s both;
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.6rem;
+  animation: fade-up 0.9s var(--ease) 0.75s both;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__media img,
+  .hero__kicker, .hero__headline, .hero__subhead, .hero__ctas {
+    animation: none;
+  }
+}
+
+.hero__scroll-cue {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 2.2rem;
+  z-index: 2;
+  width: 1px;
+  height: 3.2rem;
+  background: rgba(247, 245, 240, 0.35);
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .hero__scroll-cue { display: block; }
+}
+
+.hero__scroll-cue span {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 3px;
+  height: 0.9rem;
+  background: var(--color-paper);
+  animation: cue-drop 2.2s var(--ease) infinite;
+}
+
+@keyframes cue-drop {
+  0% { top: 0; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-cue span { animation: none; opacity: 0.6; }
+}
